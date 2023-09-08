@@ -25,7 +25,22 @@ namespace Project_1
 
         protected void fshiValuta_Click(object sender, EventArgs e)
         {
+            gabimi.Text = "";
+            if(RadioButtonList1.SelectedIndex != -1)
+            {
+                RadioButtonList1.Items.Remove(RadioButtonList1.SelectedItem);
+                totali.Text = RadioButtonList1.Items.Count.ToString();
+            }
+            else
+            {
+                gabimi.Text = "Nuk keni selektuar asnje Valute per te Fshire";
+            }
+        }
 
+        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(RadioButtonList1.SelectedValue);
+            gabimi.Text = Convert.ToString(Convert.ToInt32(shuma.Text) * value);
         }
     }
 }
